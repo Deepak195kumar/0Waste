@@ -13,6 +13,7 @@ import {
   Box,
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
+import HomePage from "./components/HomePage";
 import { Platform } from "react-native";
 
 // Define the config
@@ -27,7 +28,7 @@ export const theme = extendTheme({ config });
 export default function App() {
   return (
     <NativeBaseProvider>
-      <Center
+      {/* <Center
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
         px={4}
@@ -61,7 +62,8 @@ export default function App() {
           </Link>
           <ToggleDarkMode />
         </VStack>
-      </Center>
+      </Center> */}
+      <HomePage />
     </NativeBaseProvider>
   );
 }
