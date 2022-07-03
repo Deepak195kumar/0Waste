@@ -9,6 +9,7 @@ import {
   Stack,
   HStack,
   Modal,
+  ScrollView,
 } from "native-base";
 
 const Card = (props) => {
@@ -17,26 +18,30 @@ const Card = (props) => {
   //   };
 
   return (
-    <Box alignItems="center" onClick={props.openModal}>
-      <Box
-        position="relative"
-        maxW="80"
-        rounded="lg"
-        overflow="hidden"
-        borderColor="coolGray.200"
-        borderWidth="1"
-        _dark={{
-          borderColor: "coolGray.600",
-          backgroundColor: "gray.700",
-        }}
-        _web={{
-          shadow: 2,
-          borderWidth: 0,
-        }}
-        _light={{
-          backgroundColor: "gray.50",
-        }}
-      >
+    <Box
+      flex="1"
+      onClick={() => {
+        props.openModal(props.personData);
+      }}
+      //   position="relative"
+      maxW="80"
+      rounded="lg"
+      overflow="hidden"
+      borderColor="coolGray.200"
+      borderWidth="1"
+      _dark={{
+        borderColor: "coolGray.600",
+        backgroundColor: "gray.700",
+      }}
+      _web={{
+        shadow: 2,
+        borderWidth: 0,
+      }}
+      _light={{
+        backgroundColor: "gray.50",
+      }}
+    >
+      <ScrollView>
         <Box>
           <AspectRatio w="100%" ratio={16 / 9}>
             <Image
@@ -67,7 +72,8 @@ const Card = (props) => {
         <Stack p="4" space={4}>
           <Stack space={2}>
             <Heading size="md" ml="-1">
-              Charity Organization
+              {/* Charity Organization */}
+              {props.personData.name}
             </Heading>
             <Text
               fontSize="xs"
@@ -81,10 +87,11 @@ const Card = (props) => {
               ml="-0.5"
               mt="-1"
             >
-              560016
+              {/* 560016 */}
+              {props.personData.pincode}
             </Text>
           </Stack>
-          <Text fontWeight="400">Details regarding NGO</Text>
+          <Text fontWeight="400">{props.personData.address}</Text>
           <HStack alignItems="center" space={4} justifyContent="space-between">
             <HStack alignItems="center">
               <Text
@@ -94,12 +101,12 @@ const Card = (props) => {
                 }}
                 fontWeight="400"
               >
-                120 people
+                {props.personData.nopeople} people
               </Text>
             </HStack>
           </HStack>
         </Stack>
-      </Box>
+      </ScrollView>
     </Box>
   );
 };

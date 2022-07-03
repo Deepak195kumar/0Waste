@@ -1,16 +1,19 @@
 import React from "react";
-import {
-    FormControl,
-    Button,
-    Input
-} from "native-base"
+import { FormControl, Button, Input, Text } from "native-base";
 const InputFormElement = (props) => {
-    console.log(props.errors)
-    return <FormControl isRequired>
-        <FormControl.Label>{props.displayName}</FormControl.Label>
-        <Input type={props.fieldType} onChange={(e) => props.setFieldValue(e, props.name)} />
-        {`${props.name}` in props.errors ? <span style={{color: 'red'}}>{props.errors[props.name]}</span> : null}
-    </FormControl>; 
-}
+  return (
+    <FormControl isRequired>
+      <FormControl.Label>{props.displayName}</FormControl.Label>
+      <Input
+        type={props.fieldType}
+        onChangeText={(text) => props.setFieldValue(text, props.name)}
+        value={props.formData[props.name]}
+      />
+      {`${props.name}` in props.errors ? (
+        <Text style={{ color: "red" }}>{props.errors[props.name]}</Text>
+      ) : null}
+    </FormControl>
+  );
+};
 
 export default InputFormElement;
