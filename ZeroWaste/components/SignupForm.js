@@ -108,7 +108,7 @@ const SignpForm = (props) => {
       );
   };
   return (
-    <Box flex="1">
+    <Box flex="1" pb={5}>
       <ScrollView>
         <Center>
           <Image

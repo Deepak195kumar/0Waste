@@ -13,13 +13,17 @@ import {
   Modal,
   Button,
   ScrollView,
+  Text,
+  Alert,
 } from "native-base";
 import Card from "./card";
 
 const HomePage = (props) => {
   const [popup, setPopup] = useState(false);
+  const [confirm, setConfirm] = useState(false);
   const [currNgo, setcurrNgo] = useState({});
   const [filterData, setFilterData] = useState(props.personData);
+
   const openModal = (currData) => {
     setPopup(!popup);
     setcurrNgo(currData);
@@ -35,8 +39,52 @@ const HomePage = (props) => {
     setFilterData(ar);
   };
 
+  const finalSub = () => {
+    setPopup(false);
+    setConfirm(true);
+    setTimeout(() => {
+      setConfirm(false);
+    }, 7000);
+  };
+
   return (
     <>
+      {confirm && (
+        <Alert w="100%" status="success">
+          <VStack
+            space={1}
+            flexShrink={1}
+            w="100%"
+            alignItems="center"
+            justifyContent="top"
+          >
+            <Alert.Icon size="md" />
+            <Text
+              fontSize="md"
+              fontWeight="medium"
+              _dark={{
+                color: "coolGray.800",
+              }}
+            >
+              Request received!
+            </Text>
+
+            <Box
+              _text={{
+                textAlign: "center",
+              }}
+              _dark={{
+                _text: {
+                  color: "coolGray.600",
+                },
+              }}
+            >
+              Thanks! for your Support for the good sake. NGO Volunteer will
+              contact you shortly.
+            </Box>
+          </VStack>
+        </Alert>
+      )}
       <Box flex="1">
         <ScrollView>
           <Box w="100%">
@@ -68,7 +116,14 @@ const HomePage = (props) => {
                     lineHeight="xs"
                     mt={10}
                   >
-                    The greatest happiness lies in sharing
+                    The greatest{" "}
+                    <Text size="lg" color="green.500" fontWeight="bold">
+                      happiness
+                    </Text>{" "}
+                    lies in{" "}
+                    <Text size="lg" color="green.500" fontWeight="bold">
+                      sharing
+                    </Text>
                   </Heading>
 
                   <Stack
@@ -98,6 +153,17 @@ const HomePage = (props) => {
                       onChangeText={(text) => filterBypin(text)}
                     />
                   </Stack>
+                  <Heading
+                    pt={12}
+                    size="lg"
+                    color="green.500"
+                    _dark={{
+                      color: "warmGray.50",
+                    }}
+                    fontWeight="bold"
+                  >
+                    Zer0 Waste
+                  </Heading>
                 </Center>
               </VStack>
             </VStack>
@@ -109,7 +175,9 @@ const HomePage = (props) => {
                   );
                 })
               ) : (
-                <Text>No NGO's found for your Pincode</Text>
+                <Text fontSize="3xl" highlight>
+                  No NGO's found for your Pincode
+                </Text>
               )}
             </HStack>
           </Box>
@@ -127,8 +195,8 @@ const HomePage = (props) => {
                     <FormControl mt="3">
                       <FormControl.Label>Describe</FormControl.Label>
                       <Input
-                        placeholder="Please Describe what you are feeding Today"
-                        h="150"
+                        placeholder="Please describe what you are feeding today"
+                        h="100"
                       />
                     </FormControl>
                   </Modal.Body>
@@ -145,7 +213,7 @@ const HomePage = (props) => {
                       </Button>
                       <Button
                         onPress={() => {
-                          setPopup(false);
+                          finalSub();
                         }}
                         colorScheme="purple"
                       >

@@ -67,7 +67,7 @@ export default function App() {
 
   return (
     <NativeBaseProvider>
-      {currScreen == 3 && (
+      {currScreen == 1 && (
         <SignpForm nxt={nxt} submitting={submitting} submitTrue={submitTrue} />
       )}
       {currScreen == 2 && (
@@ -78,7 +78,7 @@ export default function App() {
           submitTrue={submitTrue}
         />
       )}
-      {currScreen == 1 && <HomePage personData={personData} />}
+      {currScreen == 3 && <HomePage personData={personData} />}
     </NativeBaseProvider>
   );
 }

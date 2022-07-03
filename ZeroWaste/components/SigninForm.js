@@ -45,7 +45,7 @@ const SigninForm = (props) => {
 
   return (
     <>
-      <Box flex="1">
+      <Box flex="1" pb={20}>
         <ScrollView>
           <Center>
             <Image

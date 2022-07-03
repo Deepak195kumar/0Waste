@@ -8,6 +8,7 @@ const InputFormElement = (props) => {
         type={props.fieldType}
         onChangeText={(text) => props.setFieldValue(text, props.name)}
         value={props.formData[props.name]}
+        placeholder={`Enter ${props.name} `}
       />
       {`${props.name}` in props.errors ? (
         <Text style={{ color: "red" }}>{props.errors[props.name]}</Text>
