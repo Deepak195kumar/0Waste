@@ -19,7 +19,6 @@ const SigninForm = (props) => {
     v[fieldName] = event;
     setData(v);
     setErrors({});
-    console.log(formData);
   };
   const vvalidateForm = () => {
     let valid = validateForm1();

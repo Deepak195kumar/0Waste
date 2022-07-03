@@ -27,7 +27,6 @@ const HomePage = (props) => {
 
   const openModal = (currData) => {
     setPopup(!popup);
-    console.log(popup, "popup");
     setcurrNgo(currData);
   };
 
@@ -36,8 +35,6 @@ const HomePage = (props) => {
     let ar = filt.filter((data) => {
       return data.pincode.includes(val);
     });
-    // console.log(val);
-    // console.log(ar);
     setFilterData(ar);
   };
 

@@ -21,7 +21,6 @@ const SignpForm = (props) => {
     v[fieldName] = event;
     setData(v);
     setErrors({});
-    console.log(formData);
   };
 
   const validateForm = () => {
@@ -35,7 +34,6 @@ const SignpForm = (props) => {
   };
 
   const validateForm1 = () => {
-    console.log(formData);
     let isFormValid = true;
     let errorObj = { ...errors };
     if (formData["email"] == undefined) {
