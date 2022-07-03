@@ -17,6 +17,7 @@ import {
   Alert,
 } from "native-base";
 import Card from "./card";
+import { EvilIcons } from "@expo/vector-icons";
 
 const HomePage = (props) => {
   const [popup, setPopup] = useState(false);
@@ -26,6 +27,7 @@ const HomePage = (props) => {
 
   const openModal = (currData) => {
     setPopup(!popup);
+    console.log(popup, "popup");
     setcurrNgo(currData);
   };
 
@@ -34,8 +36,8 @@ const HomePage = (props) => {
     let ar = filt.filter((data) => {
       return data.pincode.includes(val);
     });
-    console.log(val);
-    console.log(ar);
+    // console.log(val);
+    // console.log(ar);
     setFilterData(ar);
   };
 
@@ -140,7 +142,8 @@ const HomePage = (props) => {
                       leftElement={
                         <Icon
                           ml="1"
-                          name="search1"
+                          as={EvilIcons}
+                          name="search"
                           size="5"
                           color="coolGray.500"
                         />
@@ -149,7 +152,7 @@ const HomePage = (props) => {
                       fontSize="md"
                       variant="unstyled"
                       placeholder="Search by Pincode"
-                      flex="1"
+                      // flex="1"
                       onChangeText={(text) => filterBypin(text)}
                     />
                   </Stack>

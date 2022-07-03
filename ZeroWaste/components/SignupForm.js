@@ -4,13 +4,10 @@ import {
   Box,
   Heading,
   VStack,
-  FormControl,
   Button,
-  Input,
   Image,
   HStack,
   ScrollView,
-  Flex,
 } from "native-base";
 import axios from "axios";
 
@@ -31,36 +28,10 @@ const SignpForm = (props) => {
     let valid = validateForm1();
     if (valid) {
       props.submitTrue();
-      //   handlepost();
       setTimeout(() => {
         props.nxt(formData);
       }, 2500);
     }
-  };
-
-  const handlepost = () => {
-    console.log("hi");
-    axios({
-      url: "http://192.168.127.31:3000/api/zerowaste/signup",
-      method: "POST",
-      // Attaching the form data
-      data: formData,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    })
-      // Handle the response from backend here
-      .then((res) => {
-        console.log(res, "res");
-        console.log(res.data, "res data");
-        props.nxt(formData);
-      })
-
-      // Catch errors if any
-      .catch((err) => {
-        console.log(err.msg);
-      });
   };
 
   const validateForm1 = () => {
@@ -203,8 +174,6 @@ const SignpForm = (props) => {
               />
             </VStack>
           </Box>
-          {/* </VStack>
-      </VStack> */}
         </Center>
       </ScrollView>
     </Box>

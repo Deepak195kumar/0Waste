@@ -8,25 +8,26 @@ import {
   Text,
   Stack,
   HStack,
-  Modal,
   ScrollView,
 } from "native-base";
+import { Pressable } from "react-native";
 
 const Card = (props) => {
-  //   const openModal = () => {
-  //     setPopup(!popup);
-  //   };
-
   return (
+    // <Pressable
+    //   onPress={() => {
+    //     props.openModal(props.personData);
+    //   }}
+    // >
+
     <Box
-      flex="1"
       onClick={() => {
         props.openModal(props.personData);
       }}
-      //   position="relative"
+      flex="1"
       maxW="80"
       rounded="lg"
-      overflow="hidden"
+      //overflow="hidden"
       borderColor="coolGray.200"
       borderWidth="1"
       _dark={{
@@ -72,7 +73,6 @@ const Card = (props) => {
         <Stack p="4" space={4}>
           <Stack space={2}>
             <Heading size="md" ml="-1">
-              {/* Charity Organization */}
               {props.personData.name}
             </Heading>
             <Text
@@ -87,7 +87,6 @@ const Card = (props) => {
               ml="-0.5"
               mt="-1"
             >
-              {/* 560016 */}
               {props.personData.pincode}
             </Text>
           </Stack>
@@ -108,6 +107,8 @@ const Card = (props) => {
         </Stack>
       </ScrollView>
     </Box>
+
+    // </Pressable>
   );
 };
 export default Card;

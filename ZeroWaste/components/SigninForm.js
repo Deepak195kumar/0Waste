@@ -5,9 +5,7 @@ import {
   Heading,
   VStack,
   HStack,
-  FormControl,
   Button,
-  Input,
   ScrollView,
   Image,
 } from "native-base";

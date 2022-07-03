@@ -1,5 +1,5 @@
 import React from "react";
-import { FormControl, Button, Input, Text } from "native-base";
+import { FormControl, Input, Text } from "native-base";
 const InputFormElement = (props) => {
   return (
     <FormControl isRequired>
