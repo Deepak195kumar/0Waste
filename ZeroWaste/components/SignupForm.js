@@ -9,7 +9,6 @@ import {
   HStack,
   ScrollView,
 } from "native-base";
-import axios from "axios";
 
 import InputFormElement from "./InputFormElement";
 const SignpForm = (props) => {
